@@ -20,18 +20,35 @@ In order to use Pybind11 in your project, follow these steps:
 
 3. Create a file similar to the [CMakeLists.txt](CMakeLists.txt). This defines the needed files and the pybind11 submodules you want to add.
 
-4. Create a *build* directory and compile the files defined in [CMakeLists.txt](CMakeLists.txt). 
+4. The C++ files that contain the modules are located in [src](src)
+
+5. Create a *build* directory and compile the files defined in [CMakeLists.txt](CMakeLists.txt). 
 
         mkdir build
         cd build
         cmake ..
         make
 
-5. Then just run a python file as the one provided 
+6. Then just run a python file as the one provided 
 
-        from build.main_module import add
+        ```python
+        >>> from build.main_module import add
+        >>> from build.other_module import multiply
+        >>> from build.main_module import Pet
 
-        print(add(2,3))
+        >>> print(add(2,3))
+        5
+        >>> print(multiply(2,3))
+        6
+        >>> my_dog = Pet('Pluto', 5)
+        >>> print(my_dog.get_name())
+        Pluto
+        >>> print(my_dog.get_hunger())
+        5
+        >>> my_dog.go_for_a_walk()
+        >>> print(my_dog.get_hunger())
+        6
+        ```
 
     Here *build* is the name of the directory where the compiled files are, you could change it as you want. 
 

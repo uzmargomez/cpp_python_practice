@@ -6,3 +6,4 @@ include_directories(${PYTHON_INCLUDE_DIRS})
 
 add_subdirectory(pybind11)
 pybind11_add_module(main_module src/main_file.cpp)
+pybind11_add_module(other_module src/other_function.cpp)
